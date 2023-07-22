@@ -639,7 +639,7 @@ class WindowBase(EventDispatcher):
         if WindowBase._kanimation:
             WindowBase._kanimation.cancel(self)
         WindowBase._kanimation = kanim = Animation(
-            _kheight=self.keyboard_height + self.keyboard_padding,
+            _kheight=0,
             d=kargs['d'], t=kargs['t'])
         kanim.bind(on_complete=self._free_kanimation)
         kanim.start(self)
