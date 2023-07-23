@@ -633,16 +633,19 @@ class WindowBase(EventDispatcher):
         '''Animate content to IME height.
         '''
         kargs = self.keyboard_anim_args
-        global Animation
-        if not Animation:
-            from kivy.animation import Animation
-        if WindowBase._kanimation:
-            WindowBase._kanimation.cancel(self)
-        WindowBase._kanimation = kanim = Animation(
-            _kheight=0,
-            d=kargs['d'], t=kargs['t'])
-        kanim.bind(on_complete=self._free_kanimation)
-        kanim.start(self)
+        if kargs['d'] > 0:
+            global Animation
+            if not Animation:
+                from kivy.animation import Animation
+            if WindowBase._kanimation:
+                WindowBase._kanimation.cancel(self)
+            WindowBase._kanimation = kanim = Animation(
+                _kheight=self.keyboard_height,
+                d=kargs['d'], t=kargs['t'])
+            kanim.bind(on_complete=self._free_kanimation)
+            kanim.start(self)
+        else:
+            pass
 
     def _upd_kbd_height(self, *kargs):
         self._keyboard_changed = not self._keyboard_changed
