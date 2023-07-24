@@ -646,9 +646,6 @@ class WindowBase(EventDispatcher):
             kanim.bind(on_complete=self._free_kanimation)
             kanim.start(self)
         else:
-            global Animation
-            if not Animation:
-                from kivy.animation import Animation
             if WindowBase._kanimation:
                 WindowBase._kanimation.cancel(self)
 
