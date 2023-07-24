@@ -906,6 +906,7 @@ class WindowSDL(WindowBase):
         return True
 
     def _check_keyboard_shown(self, dt):
+        print("check keyboard shown")
         if self._sdl_keyboard is None:
             return False
         if not self._win.is_keyboard_shown():

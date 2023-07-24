@@ -458,6 +458,7 @@ class FocusBehavior(object):
                             on_key_up=self.keyboard_on_key_up,
                             on_textinput=self.keyboard_on_textinput)
             if self._requested_keyboard:
+                print("release keyboard in unbind_keyboard")
                 keyboard.release()
                 self._keyboard = None
                 self._requested_keyboard = False
@@ -469,7 +470,7 @@ class FocusBehavior(object):
         pass
 
     def _keyboard_released(self):
-        print("keyboard released")
+        print("self_focus = False in _keyboard_released")
         self.focus = False
 
     def on_touch_down(self, touch):

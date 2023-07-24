@@ -2307,6 +2307,7 @@ class WindowBase(EventDispatcher):
         This will ensure that no virtual keyboard / system keyboard is
         requested. All instances will be closed.
         '''
+        print("release_alle_keyboards")
         for key in list(self._keyboards.keys())[:]:
             keyboard = self._keyboards[key]
             if keyboard:
