@@ -507,7 +507,9 @@ cdef class _WindowSDL2Storage:
         input_type,
         keyboard_suggestions=True,
     ):
+        print("show_keyboard")
         if SDL_IsTextInputActive():
+            print("SDL_IsTextInputActive() is true")
             return
         cdef SDL_Rect *rect = <SDL_Rect *>PyMem_Malloc(sizeof(SDL_Rect))
         if not rect:
