@@ -632,6 +632,7 @@ class WindowBase(EventDispatcher):
     def _animate_content(self):
         '''Animate content to IME height.
         '''
+        print("animate content")
         kargs = self.keyboard_anim_args
         if kargs['d'] > 0:
             global Animation
