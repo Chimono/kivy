@@ -442,6 +442,7 @@ class FocusBehavior(object):
                       on_textinput=self.keyboard_on_textinput)
 
     def _unbind_keyboard(self):
+        print("unbind keybord")
         keyboard = self._keyboard
         if keyboard:
             keyboard.unbind(on_key_down=self.keyboard_on_key_down,
@@ -459,9 +460,11 @@ class FocusBehavior(object):
         pass
 
     def _keyboard_released(self):
+        print("keyboard released")
         self.focus = False
 
     def on_touch_down(self, touch):
+        print("on touch down)")
         if not self.collide_point(*touch.pos):
             return
         if (not self.disabled and self.is_focusable and
@@ -475,6 +478,7 @@ class FocusBehavior(object):
     def _handle_post_on_touch_up(touch):
         ''' Called by window after each touch has finished.
         '''
+        print("handle post on touch")
         touches = FocusBehavior.ignored_touch
         if touch in touches:
             touches.remove(touch)
