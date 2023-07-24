@@ -908,8 +908,10 @@ class WindowSDL(WindowBase):
     def _check_keyboard_shown(self, dt):
         print("check keyboard shown")
         if self._sdl_keyboard is None:
+            print("_sdl_keyboard is None")
             return False
         if not self._win.is_keyboard_shown():
+            print("if not self._win.is_keyboard_shown(): _sdl_keyboard.release()")
             self._sdl_keyboard.release()
 
     def map_key(self, original_key, new_key):
