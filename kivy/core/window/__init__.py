@@ -1004,6 +1004,7 @@ class WindowBase(EventDispatcher):
         return cls.__instance
 
     def __init__(self, **kwargs):
+        print("init in core/window")
         force = kwargs.pop('force', False)
 
         # don't init window 2 times,
@@ -1748,6 +1749,8 @@ class WindowBase(EventDispatcher):
         from kivy.graphics.opengl import glViewport
         from kivy.graphics.transformation import Matrix
         from math import radians
+
+        print("update viewport")
 
         w, h = self._get_effective_size()
 

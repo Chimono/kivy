@@ -126,6 +126,7 @@ class FocusBehavior(object):
     '''
 
     def _set_keyboard(self, value):
+        print("set_keyboard")
         focus = self.focus
         keyboard = self._keyboard
         keyboards = FocusBehavior._keyboards
@@ -139,6 +140,7 @@ class FocusBehavior(object):
         self.focus = focus
 
     def _get_keyboard(self):
+        print("get_keyboard")
         return self._keyboard
     keyboard = AliasProperty(_get_keyboard, _set_keyboard,
                              bind=('_keyboard', ))
