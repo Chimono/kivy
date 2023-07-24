@@ -412,6 +412,7 @@ class FocusBehavior(object):
                 self._unbind_keyboard()
 
     def _ensure_keyboard(self):
+        print("ensure keyboard")
         if self._keyboard is None:
             self._requested_keyboard = True
             keyboard = self._keyboard = EventLoop.window.request_keyboard(
@@ -420,7 +421,9 @@ class FocusBehavior(object):
                 input_type=self.input_type,
                 keyboard_suggestions=self.keyboard_suggestions,
             )
+            print(keyboard)
             keyboards = FocusBehavior._keyboards
+            print(keyboards)
             if keyboard not in keyboards:
                 keyboards[keyboard] = None
 
@@ -490,6 +493,7 @@ class FocusBehavior(object):
             if focusable is None or not focusable.unfocus_on_touch:
                 continue
             focusable.focus = False
+        print("handle post on touch END")
 
     def _get_focus_next(self, focus_dir):
         current = self

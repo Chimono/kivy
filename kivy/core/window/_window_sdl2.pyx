@@ -627,10 +627,10 @@ cdef class _WindowSDL2Storage:
                 elif softinput_mode == 'pan':
                     # tell Android the TextInput is at the screen
                     # bottom, so that it always pans
-                    rect.y = wy - 5
+                    rect.y = wy - 15
                     rect.x = 0
                     rect.w = wx
-                    rect.h = 5
+                    rect.h = 15
                     SDL_SetTextInputRect(rect)
                 else:
                     # Supporting 'resize' needs to call the Android
