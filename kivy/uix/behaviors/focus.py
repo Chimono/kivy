@@ -429,20 +429,24 @@ class FocusBehavior(object):
 
     def _bind_keyboard(self):
         self._ensure_keyboard()
+        print("bind_keyboard")
         keyboard = self._keyboard
 
         if not keyboard or self.disabled or not self.is_focusable:
             self.focus = False
+            print("if not keyboard")
             return
         keyboards = FocusBehavior._keyboards
         old_focus = keyboards[keyboard]  # keyboard should be in dict
         if old_focus:
+            print("old_focus")
             old_focus.focus = False
             # keyboard shouldn't have been released here, see keyboard warning
         keyboards[keyboard] = self
         keyboard.bind(on_key_down=self.keyboard_on_key_down,
                       on_key_up=self.keyboard_on_key_up,
                       on_textinput=self.keyboard_on_textinput)
+        print("bind_keyboards END")
 
     def _unbind_keyboard(self):
         print("unbind keybord")
