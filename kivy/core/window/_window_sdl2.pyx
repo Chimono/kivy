@@ -507,9 +507,7 @@ cdef class _WindowSDL2Storage:
         input_type,
         keyboard_suggestions=True,
     ):
-        print("show_keyboard")
         if SDL_IsTextInputActive():
-            print("SDL_IsTextInputActive() is true")
             return
         cdef SDL_Rect *rect = <SDL_Rect *>PyMem_Malloc(sizeof(SDL_Rect))
         if not rect:
@@ -609,7 +607,6 @@ cdef class _WindowSDL2Storage:
                 # This could probably be safely done on every platform
                 # (and should behave correctly with e.g. the windows
                 # software keyboard), but this hasn't been tested
-                print("ios keyboard behaviour")
                 wx, wy = self.window_size
 
                 # Note Android's coordinate system has y=0 at the top

@@ -126,7 +126,6 @@ class FocusBehavior(object):
     '''
 
     def _set_keyboard(self, value):
-        print("set_keyboard")
         focus = self.focus
         keyboard = self._keyboard
         keyboards = FocusBehavior._keyboards
@@ -140,7 +139,6 @@ class FocusBehavior(object):
         self.focus = focus
 
     def _get_keyboard(self):
-        print("get_keyboard")
         return self._keyboard
     keyboard = AliasProperty(_get_keyboard, _set_keyboard,
                              bind=('_keyboard', ))
@@ -414,7 +412,6 @@ class FocusBehavior(object):
                 self._unbind_keyboard()
 
     def _ensure_keyboard(self):
-        print("ensure keyboard")
         if self._keyboard is None:
             self._requested_keyboard = True
             keyboard = self._keyboard = EventLoop.window.request_keyboard(
@@ -423,42 +420,34 @@ class FocusBehavior(object):
                 input_type=self.input_type,
                 keyboard_suggestions=self.keyboard_suggestions,
             )
-            print(keyboard)
             keyboards = FocusBehavior._keyboards
-            print(keyboards)
             if keyboard not in keyboards:
                 keyboards[keyboard] = None
 
     def _bind_keyboard(self):
         self._ensure_keyboard()
-        print("bind_keyboard")
         keyboard = self._keyboard
 
         if not keyboard or self.disabled or not self.is_focusable:
             self.focus = False
-            print("if not keyboard")
             return
         keyboards = FocusBehavior._keyboards
         old_focus = keyboards[keyboard]  # keyboard should be in dict
         if old_focus:
-            print("old_focus")
             old_focus.focus = False
             # keyboard shouldn't have been released here, see keyboard warning
         keyboards[keyboard] = self
         keyboard.bind(on_key_down=self.keyboard_on_key_down,
                       on_key_up=self.keyboard_on_key_up,
                       on_textinput=self.keyboard_on_textinput)
-        print("bind_keyboards END")
 
     def _unbind_keyboard(self):
-        print("unbind keybord")
         keyboard = self._keyboard
         if keyboard:
             keyboard.unbind(on_key_down=self.keyboard_on_key_down,
                             on_key_up=self.keyboard_on_key_up,
                             on_textinput=self.keyboard_on_textinput)
             if self._requested_keyboard:
-                print("release keyboard in unbind_keyboard")
                 keyboard.release()
                 self._keyboard = None
                 self._requested_keyboard = False
@@ -470,11 +459,9 @@ class FocusBehavior(object):
         pass
 
     def _keyboard_released(self):
-        print("self_focus = False in _keyboard_released")
         self.focus = False
 
     def on_touch_down(self, touch):
-        print("on touch down)")
         if not self.collide_point(*touch.pos):
             return
         if (not self.disabled and self.is_focusable and
@@ -488,7 +475,6 @@ class FocusBehavior(object):
     def _handle_post_on_touch_up(touch):
         ''' Called by window after each touch has finished.
         '''
-        print("handle post on touch")
         touches = FocusBehavior.ignored_touch
         if touch in touches:
             touches.remove(touch)
@@ -500,7 +486,6 @@ class FocusBehavior(object):
             if focusable is None or not focusable.unfocus_on_touch:
                 continue
             focusable.focus = False
-        print("handle post on touch END")
 
     def _get_focus_next(self, focus_dir):
         current = self

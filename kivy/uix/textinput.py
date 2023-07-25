@@ -2852,7 +2852,6 @@ class TextInput(FocusBehavior, Widget):
             else:
                 self.dispatch('on_text_validate')
                 if self.text_validate_unfocus:
-                    print("defocus due internal_action enter")
                     self.focus = False
 
         elif internal_action == 'escape':

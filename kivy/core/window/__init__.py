@@ -144,7 +144,6 @@ class Keyboard(EventDispatcher):
         pass
 
     def release(self):
-        print("release in window/__init__")
         '''Call this method to release the current keyboard.
         This will ensure that the keyboard is no longer attached to your
         callback.'''
@@ -633,7 +632,6 @@ class WindowBase(EventDispatcher):
     def _animate_content(self):
         '''Animate content to IME height.
         '''
-        print("animate content")
         kargs = self.keyboard_anim_args
         if kargs['d'] > 0:
             global Animation
@@ -651,7 +649,6 @@ class WindowBase(EventDispatcher):
                 WindowBase._kanimation.cancel(self)
 
     def _upd_kbd_height(self, *kargs):
-        print("_upd_kbd_height")
         self._keyboard_changed = not self._keyboard_changed
         self._animate_content()
 
@@ -1005,7 +1002,6 @@ class WindowBase(EventDispatcher):
         return cls.__instance
 
     def __init__(self, **kwargs):
-        print("init in core/window")
         force = kwargs.pop('force', False)
 
         # don't init window 2 times,
@@ -1751,7 +1747,6 @@ class WindowBase(EventDispatcher):
         from kivy.graphics.transformation import Matrix
         from math import radians
 
-        print("update viewport")
 
         w, h = self._get_effective_size()
 
@@ -2308,7 +2303,6 @@ class WindowBase(EventDispatcher):
         This will ensure that no virtual keyboard / system keyboard is
         requested. All instances will be closed.
         '''
-        print("release_alle_keyboards")
         for key in list(self._keyboards.keys())[:]:
             keyboard = self._keyboards[key]
             if keyboard:
@@ -2375,7 +2369,7 @@ class WindowBase(EventDispatcher):
             more information.
 
         '''
-        print("request_keyboard in window/__init__: target: " + str(target))
+
         # release any previous keyboard attached.
         self.release_keyboard(target)
 
@@ -2439,7 +2433,6 @@ class WindowBase(EventDispatcher):
         return keyboard
 
     def release_keyboard(self, target=None):
-        print("release_keyboard in window/__init__")
         '''.. versionadded:: 1.0.4
 
         Internal method for the widget to release the real-keyboard. Check
