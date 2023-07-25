@@ -916,6 +916,7 @@ class WindowSDL(WindowBase):
          #       return False
          #   else:
             print("if not self._win.is_keyboard_shown(): _sdl_keyboard.release()")
+            print("did it compiled?")
             self._sdl_keyboard.release()
 
     def map_key(self, original_key, new_key):
