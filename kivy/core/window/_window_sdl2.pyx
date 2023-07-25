@@ -653,7 +653,7 @@ cdef class _WindowSDL2Storage:
             SDL_StopTextInput()
 
     def is_keyboard_shown(self):
-        return SDL_IsTextInputActive()
+        return SDL_TextInputActive()
 
     def wait_event(self):
         with nogil:
