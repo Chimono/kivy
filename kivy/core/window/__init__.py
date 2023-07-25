@@ -144,6 +144,7 @@ class Keyboard(EventDispatcher):
         pass
 
     def release(self):
+        print("release in window/__init__")
         '''Call this method to release the current keyboard.
         This will ensure that the keyboard is no longer attached to your
         callback.'''
@@ -2374,7 +2375,7 @@ class WindowBase(EventDispatcher):
             more information.
 
         '''
-
+        print("request_keyboard in window/__init__: target: " + str(target))
         # release any previous keyboard attached.
         self.release_keyboard(target)
 
@@ -2438,6 +2439,7 @@ class WindowBase(EventDispatcher):
         return keyboard
 
     def release_keyboard(self, target=None):
+        print("release_keyboard in window/__init__")
         '''.. versionadded:: 1.0.4
 
         Internal method for the widget to release the real-keyboard. Check
