@@ -412,6 +412,7 @@ class FocusBehavior(object):
                 self._unbind_keyboard()
 
     def _ensure_keyboard(self):
+        print("[focus] _ensure_keyboard")
         if self._keyboard is None:
             self._requested_keyboard = True
             keyboard = self._keyboard = EventLoop.window.request_keyboard(
@@ -425,6 +426,7 @@ class FocusBehavior(object):
                 keyboards[keyboard] = None
 
     def _bind_keyboard(self):
+        print("[focus] _bind_keyboard to textinput")
         self._ensure_keyboard()
         keyboard = self._keyboard
 
@@ -442,6 +444,7 @@ class FocusBehavior(object):
                       on_textinput=self.keyboard_on_textinput)
 
     def _unbind_keyboard(self):
+        print("[focus] _unbind_keyboard to textinput")
         keyboard = self._keyboard
         if keyboard:
             keyboard.unbind(on_key_down=self.keyboard_on_key_down,

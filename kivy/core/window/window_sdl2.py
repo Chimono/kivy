@@ -886,6 +886,7 @@ class WindowSDL(WindowBase):
     def request_keyboard(
             self, callback, target, input_type='text', keyboard_suggestions=True
     ):
+        print("[window_sdl2] request_keyboard: return _sdl_keyboard")
         self._sdl_keyboard = super(WindowSDL, self).\
             request_keyboard(
             callback, target, input_type, keyboard_suggestions
@@ -900,18 +901,24 @@ class WindowSDL(WindowBase):
         return self._sdl_keyboard
 
     def release_keyboard(self, *largs):
+        print("[window_sdl2] release_keyboard: hide_keyboard, set _sdl_keyboard to None, return True")
         super(WindowSDL, self).release_keyboard(*largs)
         self._win.hide_keyboard()
         self._sdl_keyboard = None
         return True
 
     def _check_keyboard_shown(self, dt):
+        print("[window_sdl2] _check_keyboard_shown:")
         if self._sdl_keyboard is None:
+            print("[window_sdl2] _check_keyboard_shown: _sdl_keyboard is None, return False")
             return False
         if not self._win.is_keyboard_shown():
+            print("[window_sdl2] _check_keyboard_shown: self._win.is_keyboard_shown() is None")
             if self._sdl_keyboard.target:
+                print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
                 return False
             else:
+                print("[window_sdl2] _check_keyboard_shown: release keyboard")
                 self._sdl_keyboard.release()
 
     def map_key(self, original_key, new_key):

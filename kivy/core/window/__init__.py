@@ -144,6 +144,7 @@ class Keyboard(EventDispatcher):
         pass
 
     def release(self):
+        print("[__init__] release: set target to None")
         '''Call this method to release the current keyboard.
         This will ensure that the keyboard is no longer attached to your
         callback.'''
@@ -630,6 +631,7 @@ class WindowBase(EventDispatcher):
         WindowBase._kanimation = None
 
     def _animate_content(self):
+        print("[__init__] _animate_content")
         '''Animate content to IME height.
         '''
         kargs = self.keyboard_anim_args
@@ -683,6 +685,7 @@ class WindowBase(EventDispatcher):
         return 0
 
     def _get_kheight(self):
+        print("[__init__] _get_kheight")
         if platform == 'android':
             return self._get_android_kheight()
         elif platform == 'ios':
@@ -2370,6 +2373,7 @@ class WindowBase(EventDispatcher):
 
         '''
 
+        print("[__init__] request_keyboard")
         # release any previous keyboard attached.
         self.release_keyboard(target)
 
