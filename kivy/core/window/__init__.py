@@ -685,10 +685,10 @@ class WindowBase(EventDispatcher):
         return 0
 
     def _get_kheight(self):
-        print("[__init__] _get_kheight")
         if platform == 'android':
             return self._get_android_kheight()
         elif platform == 'ios':
+            print("[__init__] _get_kheight" + str(self._get_ios_kheight()))
             return self._get_ios_kheight()
         return self._get_kivy_vkheight()
 
@@ -1598,6 +1598,7 @@ class WindowBase(EventDispatcher):
         )
 
     def transform_motion_event_2d(self, me, widget=None):
+        print("[__init__] transform_motion_event_2d")
         '''Transforms the motion event `me` to this window size and then if
         `widget` is passed transforms `me` to `widget`'s local coordinates.
 
@@ -1746,6 +1747,7 @@ class WindowBase(EventDispatcher):
         self.property('left').dispatch(self)
 
     def update_viewport(self):
+        print("[__init__] update_viewport")
         from kivy.graphics.opengl import glViewport
         from kivy.graphics.transformation import Matrix
         from math import radians
