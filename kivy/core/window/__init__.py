@@ -689,7 +689,8 @@ class WindowBase(EventDispatcher):
             return self._get_android_kheight()
         elif platform == 'ios':
             print("[__init__] _get_kheight" + str(self._get_ios_kheight()))
-            return self._get_ios_kheight()
+            # return self._get_ios_kheight()
+            return 110
         return self._get_kivy_vkheight()
 
     keyboard_height = AliasProperty(_get_kheight, bind=('_keyboard_changed',))
@@ -1747,7 +1748,6 @@ class WindowBase(EventDispatcher):
         self.property('left').dispatch(self)
 
     def update_viewport(self):
-        print("[__init__] update_viewport")
         from kivy.graphics.opengl import glViewport
         from kivy.graphics.transformation import Matrix
         from math import radians
