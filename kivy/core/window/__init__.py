@@ -2380,6 +2380,7 @@ class WindowBase(EventDispatcher):
 
         # if we can use virtual vkeyboard, activate it.
         if self.allow_vkeyboard:
+            print("[__init__] allow_vkeyboard True")
             keyboard = None
 
             # late import
@@ -2420,6 +2421,7 @@ class WindowBase(EventDispatcher):
 
         else:
             # system keyboard, just register the callback.
+            print("[__init__] systemkeyboard")
             keyboard = self._system_keyboard
             keyboard.callback = callback
             keyboard.target = target
