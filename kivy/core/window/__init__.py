@@ -688,9 +688,8 @@ class WindowBase(EventDispatcher):
         if platform == 'android':
             return self._get_android_kheight()
         elif platform == 'ios':
-            print("[__init__] _get_kheight" + str(self._get_ios_kheight()))
-            # return self._get_ios_kheight()
-            return 110
+            print("[__init__] _get_kheight: " + str(self._get_ios_kheight()))
+            return self._get_ios_kheight()
         return self._get_kivy_vkheight()
 
     keyboard_height = AliasProperty(_get_kheight, bind=('_keyboard_changed',))
