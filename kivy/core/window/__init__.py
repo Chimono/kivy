@@ -144,7 +144,7 @@ class Keyboard(EventDispatcher):
         pass
 
     def release(self):
-        print("[__init__] release: set target to None")
+        # print("[__init__] release: set target to None")
         '''Call this method to release the current keyboard.
         This will ensure that the keyboard is no longer attached to your
         callback.'''
@@ -631,7 +631,7 @@ class WindowBase(EventDispatcher):
         WindowBase._kanimation = None
 
     def _animate_content(self):
-        print("[__init__] _animate_content")
+        # print("[__init__] _animate_content")
         '''Animate content to IME height.
         '''
         kargs = self.keyboard_anim_args
@@ -688,7 +688,7 @@ class WindowBase(EventDispatcher):
         if platform == 'android':
             return self._get_android_kheight()
         elif platform == 'ios':
-            print("[__init__] _get_kheight: " + str(self._get_ios_kheight()))
+            # print("[__init__] _get_kheight: " + str(self._get_ios_kheight()))
             return self._get_ios_kheight()
         return self._get_kivy_vkheight()
 
@@ -1598,7 +1598,7 @@ class WindowBase(EventDispatcher):
         )
 
     def transform_motion_event_2d(self, me, widget=None):
-        print("[__init__] transform_motion_event_2d")
+        # print("[__init__] transform_motion_event_2d")
         '''Transforms the motion event `me` to this window size and then if
         `widget` is passed transforms `me` to `widget`'s local coordinates.
 
@@ -2374,13 +2374,13 @@ class WindowBase(EventDispatcher):
 
         '''
 
-        print("[__init__] request_keyboard")
+        # print("[__init__] request_keyboard")
         # release any previous keyboard attached.
         self.release_keyboard(target)
 
         # if we can use virtual vkeyboard, activate it.
         if self.allow_vkeyboard:
-            print("[__init__] allow_vkeyboard True")
+            # print("[__init__] allow_vkeyboard True")
             keyboard = None
 
             # late import
@@ -2421,7 +2421,7 @@ class WindowBase(EventDispatcher):
 
         else:
             # system keyboard, just register the callback.
-            print("[__init__] systemkeyboard")
+            # print("[__init__] systemkeyboard")
             keyboard = self._system_keyboard
             keyboard.callback = callback
             keyboard.target = target
