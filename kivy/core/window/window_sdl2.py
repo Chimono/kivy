@@ -916,7 +916,8 @@ class WindowSDL(WindowBase):
             # print("[window_sdl2] _check_keyboard_shown: self._win.is_keyboard_shown() is None")
             if self._sdl_keyboard.target:
                 # print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
-                self._win.show_keyboard(self._system_keyboard, self.softinput_mode, 'text', false)
+                self._win.show_keyboard(self._system_keyboard, self.softinput_mode, 'text', True)
+                print(self._sdl_keyboard)
                 # print("keyboard active: " + str(self._sdl_keyboard))
                 return False
             else:

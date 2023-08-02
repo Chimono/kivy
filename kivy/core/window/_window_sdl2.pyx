@@ -604,6 +604,7 @@ cdef class _WindowSDL2Storage:
                 mActivity.changeKeyboard(input_type_value)
 
             if platform == 'ios':
+                print("(show_keyboard) SDL_START_TextInput")
                 # This could probably be safely done on every platform
                 # (and should behave correctly with e.g. the windows
                 # software keyboard), but this hasn't been tested
