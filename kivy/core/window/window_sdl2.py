@@ -908,7 +908,7 @@ class WindowSDL(WindowBase):
         return True
 
     def _check_keyboard_shown(self, dt):
-        # print("[window_sdl2] _check_keyboard_shown:")
+        print("[window_sdl2] _check_keyboard_shown:")
         if self._sdl_keyboard is None:
             # print("[window_sdl2] _check_keyboard_shown: _sdl_keyboard is None, return False")
             return False
@@ -917,11 +917,10 @@ class WindowSDL(WindowBase):
             if self._sdl_keyboard.target:
                 # print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
                 self._win.show_keyboard(self._system_keyboard, self.softinput_mode, 'text', True)
-                print(self._sdl_keyboard)
-                # print("keyboard active: " + str(self._sdl_keyboard))
+                print("keyboard active: " + str(self._sdl_keyboard))
                 return False
             else:
-                # print("[window_sdl2] _check_keyboard_shown: release keyboard")
+                print("[window_sdl2] _check_keyboard_shown: release keyboard")
                 self._sdl_keyboard.release()
 
     def map_key(self, original_key, new_key):
