@@ -887,6 +887,7 @@ class WindowSDL(WindowBase):
             self, callback, target, input_type='text', keyboard_suggestions=True
     ):
         # print("[window_sdl2] request_keyboard: return _sdl_keyboard")
+        print("(window_sdl2) callback: " + str(callback))
         self._sdl_keyboard = super(WindowSDL, self).\
             request_keyboard(
             callback, target, input_type, keyboard_suggestions
@@ -917,7 +918,7 @@ class WindowSDL(WindowBase):
             if self._sdl_keyboard.target:
                 # print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
                 self.release_keyboard()
-                self.request_keyboard()
+                self.request_keyboard(self._sdl_keyboard.callback, self._sdl_keyboard.target)
                 print("(window_sdl2) keyboard active: " + str(self._sdl_keyboard))
                 return False
             else:
