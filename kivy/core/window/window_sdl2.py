@@ -918,7 +918,7 @@ class WindowSDL(WindowBase):
             if self._sdl_keyboard.target:
                 # print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
                 self.release_keyboard()
-                callback = self._sdl_keyboard.callback
+                callback = self._sdl_keyboard.target._keyboard_released()
                 target = self._sdl_keyboard.target
                 self.request_keyboard(callback, target)
                 print("(window_sdl2) keyboard active: " + str(self._sdl_keyboard))
