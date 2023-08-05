@@ -919,7 +919,6 @@ class WindowSDL(WindowBase):
                 # print("[window_sdl2] _check_keyboard_shown: self._sdl_keyboard.target exsists")
                 target = self._sdl_keyboard.target
                 print(target.focus)
-                print(target._pos)
                 target.focus = True
             else:
                 print("[window_sdl2] _check_keyboard_shown: release keyboard")
