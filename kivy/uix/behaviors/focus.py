@@ -237,7 +237,7 @@ class FocusBehavior(object):
         2.0.0.
     '''
 
-    keyboard_suggestions = BooleanProperty(True)
+    keyboard_suggestions = BooleanProperty(False)
     '''If True provides auto suggestions on top of keyboard.
     This will only work if :attr:`input_type` is set to `text`, `url`, `mail` or
     `address`.
