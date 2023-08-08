@@ -617,7 +617,7 @@ cdef class _WindowSDL2Storage:
                 if softinput_mode == 'below_target':
                     target = system_keyboard.target
                     rect.y = max(
-                        0, target.to_window(0, target.top)[1]
+                        0, wy - target.to_window(0, target.y)[1]
                     ) if target else 0
                     rect.x = max(
                         0, target.to_window(target.x, 0)[0]
