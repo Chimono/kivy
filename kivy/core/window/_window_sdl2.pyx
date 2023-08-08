@@ -624,6 +624,9 @@ cdef class _WindowSDL2Storage:
                     ) if target else 0
                     rect.w = max(0, target.width) if target else 0
                     rect.h = max(0, target.height) if target else 0
+                    print("_window_sdl2.pyx: " + rect.x + " " + rect.y + " " + rect.w + " " + rect.h)
+                    print(target.to_window(0, target.top))
+                    print("window x,y: " + wx + " " + wy)
                     SDL_SetTextInputRect(rect)
                 elif softinput_mode == 'pan':
                     # tell Android the TextInput is at the screen

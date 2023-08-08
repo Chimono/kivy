@@ -2418,6 +2418,7 @@ class WindowBase(EventDispatcher):
                 keyboard.widget.top = 0
             elif self.softinput_mode == 'below_target':
                 keyboard.widget.top = keyboard.target.y
+                print("(__init__) keyboard.widget.top: " + keyboard.widget.top)
 
         else:
             # system keyboard, just register the callback.
