@@ -627,7 +627,7 @@ cdef class _WindowSDL2Storage:
                     print("_window_sdl2.pyx: " + str(rect.x) + " " + str(rect.y) + " " + str(rect.w) + " " + str(rect.h))
                     print(target.to_window(0, target.top))
                     print("window x,y: " + str(wx) + " " + str(wy))
-                    SDL_SetTextInputRect()
+                    # SDL_SetTextInputRect(rect)
                 elif softinput_mode == 'pan':
                     # tell Android the TextInput is at the screen
                     # bottom, so that it always pans
