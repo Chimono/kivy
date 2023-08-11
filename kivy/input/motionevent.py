@@ -462,9 +462,10 @@ class MotionEvent(MotionEventBase):
         if smode:
             # Adjust y for keyboard height
             if smode == 'pan' or smode == 'below_target':
-                self.y -= kheight
-                self.oy -= kheight
-                self.py -= kheight
+                #self.y -= kheight
+                #self.oy -= kheight
+                #self.py -= kheight
+                pass
             elif smode == 'scale':
                 offset = kheight * (self.y - h) / (h - kheight)
                 self.y += offset
