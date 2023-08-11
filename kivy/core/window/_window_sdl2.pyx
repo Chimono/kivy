@@ -619,7 +619,7 @@ cdef class _WindowSDL2Storage:
                     print("_window_sdl2.pyx: " + str(rect.x) + " " + str(rect.y) + " " + str(rect.w) + " " + str(rect.h))
                     print(target.to_window(0, target.top))
                     print("window x,y: " + str(wx) + " " + str(wy))
-                    SDL_SetTextInputRect(rect)
+                    # SDL_SetTextInputRect(rect)
                 elif softinput_mode == 'pan':
                     # tell Android the TextInput is at the screen
                     # bottom, so that it always pans
@@ -629,9 +629,6 @@ cdef class _WindowSDL2Storage:
                     rect.h = 100
                     SDL_SetTextInputRect(rect)
                 else:
-                    # Supporting 'resize' needs to call the Android
-                    # API to set ADJUST_RESIZE mode, and change the
-                    # java bootstrap to a different root Layout.
                     rect.y = 0
                     rect.x = 0
                     rect.w = 10

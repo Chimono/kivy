@@ -648,7 +648,6 @@ class WindowBase(EventDispatcher):
         else:
             if WindowBase._kanimation:
                 WindowBase._kanimation.cancel(self)
-            self._free_kanimation()
 
     def _upd_kbd_height(self, *kargs):
         self._keyboard_changed = not self._keyboard_changed
