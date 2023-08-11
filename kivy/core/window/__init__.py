@@ -144,7 +144,6 @@ class Keyboard(EventDispatcher):
         pass
 
     def release(self):
-        # print("[__init__] release: set target to None")
         '''Call this method to release the current keyboard.
         This will ensure that the keyboard is no longer attached to your
         callback.'''
@@ -2374,13 +2373,11 @@ class WindowBase(EventDispatcher):
 
         '''
 
-        # print("[__init__] request_keyboard")
         # release any previous keyboard attached.
         self.release_keyboard(target)
 
         # if we can use virtual vkeyboard, activate it.
         if self.allow_vkeyboard:
-            # print("[__init__] allow_vkeyboard True")
             keyboard = None
 
             # late import
@@ -2418,11 +2415,10 @@ class WindowBase(EventDispatcher):
                 keyboard.widget.top = 0
             elif self.softinput_mode == 'below_target':
                 keyboard.widget.top = keyboard.target.y
-                print("(__init__) keyboard.widget.top: " + keyboard.widget.top)
+                # print("(__init__) keyboard.widget.top: " + keyboard.widget.top)
 
         else:
             # system keyboard, just register the callback.
-            # print("[__init__] systemkeyboard")
             keyboard = self._system_keyboard
             keyboard.callback = callback
             keyboard.target = target

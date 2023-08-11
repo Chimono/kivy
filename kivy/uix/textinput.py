@@ -3013,12 +3013,10 @@ class TextInput(FocusBehavior, Widget):
     _ime_cursor = ListProperty(None, allownone=True)
 
     def _bind_keyboard(self):
-        # print("[textinput] _bind_keyboard")
         super()._bind_keyboard()
         Window.bind(on_textedit=self.window_on_textedit)
 
     def _unbind_keyboard(self):
-        # print("[textinput] _unbind_keyboard")
         super()._unbind_keyboard()
         Window.unbind(on_textedit=self.window_on_textedit)
 

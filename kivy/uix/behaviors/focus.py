@@ -137,9 +137,6 @@ class FocusBehavior(object):
             keyboards[value] = None
         self._keyboard = value
         self.focus = focus
-        print("(focus) keyboard: " + keyboard)
-        print("(focus) keyboards: " + keyboards)
-        print("(focus) focus: " + focus)
 
     def _get_keyboard(self):
         return self._keyboard
