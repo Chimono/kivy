@@ -507,7 +507,6 @@ cdef class _WindowSDL2Storage:
         input_type,
         keyboard_suggestions=True,
     ):
-        print("(_window_sdl2.pyx) system_keyboard: " + str(system_keyboard))
         if SDL_IsTextInputActive():
             return
         cdef SDL_Rect *rect = <SDL_Rect *>PyMem_Malloc(sizeof(SDL_Rect))
@@ -605,14 +604,7 @@ cdef class _WindowSDL2Storage:
                 mActivity.changeKeyboard(input_type_value)
 
             if platform == 'ios':
-                print("(show_keyboard) SDL_START_TextInput")
-                # This could probably be safely done on every platform
-                # (and should behave correctly with e.g. the windows
-                # software keyboard), but this hasn't been tested
                 wx, wy = self.window_size
-
-                # Note Android's coordinate system has y=0 at the top
-                # of the screen
 
                 if softinput_mode == 'below_target':
                     target = system_keyboard.target
