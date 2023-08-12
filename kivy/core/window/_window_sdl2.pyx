@@ -616,7 +616,7 @@ cdef class _WindowSDL2Storage:
                     print("wheight: ", wheight)
 
                     if target:
-                        if wheight*0.5 < kheight:
+                        if wheight < kheight:
                             rect.y = wheight
                         else:
                             rect.y = 0
