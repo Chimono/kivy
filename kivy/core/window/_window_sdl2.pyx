@@ -612,9 +612,12 @@ cdef class _WindowSDL2Storage:
                     target = system_keyboard.target
                     wheight = target.to_window(0, target.top)[1]
 
+                    print("kheight: ", kheight)
+                    print("wheight: ", wheight)
+
                     if target:
-                        if wheight < kheight:
-                            rect.y = kheight + wheight
+                        if wheight*0.5 < kheight:
+                            rect.y = wheight
                         else:
                             rect.y = 0
                     else:
