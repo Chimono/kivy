@@ -610,7 +610,7 @@ cdef class _WindowSDL2Storage:
                     import ios
                     kheight = ios.get_kheight()
                     target = system_keyboard.target
-                    wheight = target.to_window(0, target.top)[1]
+                    wheight = target.to_window(0, target.top, initial=False)[1]
 
                     print("kheight: ", kheight)
                     print("wheight: ", wheight)
