@@ -9,7 +9,6 @@ from kivy.config import Config
 from kivy.logger import Logger
 from kivy import platform
 from kivy.graphics.cgl cimport *
-from kivy.uix.window import Window
 
 from cpython.mem cimport PyMem_Malloc, PyMem_Realloc, PyMem_Free
 
