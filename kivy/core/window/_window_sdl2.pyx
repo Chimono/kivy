@@ -608,24 +608,16 @@ cdef class _WindowSDL2Storage:
                 wx, wy = self.window_size
 
                 if softinput_mode == 'below_target':
-                    #import ios
-                  #  kheight = ios.get_kheight()
                     target = system_keyboard.target
-                  #  wheight = target.to_window(0, target.top)[1]
-
-                 #   if target:
-                 #       if wheight < kheight:
-                 #           rect.y = kheight + wheight
-                #        else:
-                #            rect.y = 0
-                #    else:
-                 #       rect.y = 0
-
-                    rect.y = max(0, wy - target.to_window(0, target.top)[1]) if target else 0
-                    rect.x = max(0, target.to_window(target.x, 0)[0]) if target else 0
+                    rect.y = max(
+                        0, wy - target.to_window(0, target.top)[1]
+                        0, target.to_window(0, target.top)[1]
+                    ) if target else 0
+                    rect.x = max(
+                        0, target.to_window(target.x, 0)[0]
+                    ) if target else 0
                     rect.w = max(0, target.width) if target else 0
                     rect.h = max(0, target.height) if target else 0
-
                     print("_window_sdl2.pyx: " + str(rect.x) + " " + str(rect.y) + " " + str(rect.w) + " " + str(rect.h))
                     print(target.to_window(0, target.top))
                     print("window x,y: " + str(wx) + " " + str(wy))
