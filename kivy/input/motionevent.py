@@ -131,7 +131,6 @@ from time import time
 
 from kivy.eventmanager import MODE_DEFAULT_DISPATCH
 from kivy.vector import Vector
-from kivy import platform
 
 
 class EnhancedDictionary(dict):
@@ -463,20 +462,10 @@ class MotionEvent(MotionEventBase):
         if smode:
             # Adjust y for keyboard height
             if smode == 'pan' or smode == 'below_target':
-                if platform == "ios":
-                    import ios
-                    kheight = ios.get_kheight()
-
-                    if kheight > 0:
-                        self.y -= kheight
-                        self.oy -= kheight
-                        self.py -= kheight
-                    else:
-                        pass
-                else:
-                    self.y -= kheight
-                    self.oy -= kheight
-                    self.py -= kheight
+                pass
+                #self.y -= kheight
+                #self.oy -= kheight
+                #self.py -= kheight
             elif smode == 'scale':
                 offset = kheight * (self.y - h) / (h - kheight)
                 self.y += offset
